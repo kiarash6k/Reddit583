@@ -1,13 +1,10 @@
 import 'Post.dart';
 
 class Community {
-  List<Post> posts;
+  List<Post> posts = [];
   String _communityName;
   String _networkURL;
-  Community(String communityName, networkURL) {
-    _communityName = communityName;
-    _networkURL = networkURL;
-  }
+  Community(this._communityName, this._networkURL);
   void setcommunityName(String communityName) {
     _communityName = communityName;
   }

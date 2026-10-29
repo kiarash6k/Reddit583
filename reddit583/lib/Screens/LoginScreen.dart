@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
 import 'Home_page.dart';
 import 'SignUpScreen.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'SocialButton.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController user, pass;
-  String userError, passError;
+  late TextEditingController user, pass;
+  String? userError, passError;
   bool isHidden = true;
-  SnackBar alarm;
-  GlobalKey<ScaffoldState> scaffoldKey;
+  late SnackBar alarm;
   @override
   void initState() {
     user = TextEditingController();
     pass = TextEditingController();
-    scaffoldKey = GlobalKey<ScaffoldState>();
     super.initState();
   }
 
@@ -37,7 +35,6 @@ class _LoginScreenState extends State<LoginScreen> {
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
             home: Scaffold(
-                key: scaffoldKey,
                 backgroundColor: Color.fromARGB(255, 40, 90, 82),
                 appBar: AppBar(
                   leading: IconButton(
@@ -131,9 +128,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             String username = user.text;
                             String password = pass.text;
-                            RegExp capitalLetter = new RegExp(r'[A-Z]');
-                            RegExp smallLetter = new RegExp(r'[a-z]');
-                            RegExp number = new RegExp(r'[0-9]');
+                            RegExp capitalLetter = RegExp(r'[A-Z]');
+                            RegExp smallLetter = RegExp(r'[a-z]');
+                            RegExp number = RegExp(r'[0-9]');
                             FocusScope.of(context).requestFocus(FocusNode());
                             setState(() {
                               if (username.length < 4) {
@@ -152,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 alarm = SnackBar(
                                     content: Text(
                                         'Login successful. welcome ${user.text}. have fun!'));
-                                scaffoldKey.currentState.showSnackBar(alarm);
+                                ScaffoldMessenger.of(context).showSnackBar(alarm);
                               }
                             });
                             Navigator.push(
@@ -269,8 +266,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         builder: (context) => MyHomePage()),
                                   )
                                 },
-                                child: SignInButton(
-                                  Buttons.Twitter,
+                                child: SocialButton(twitterIcon, const Color(0xFF1DA1F2),
                                   onPressed: () {
                                     Navigator.push(
                                       context,
@@ -292,8 +288,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         builder: (context) => MyHomePage()),
                                   )
                                 },
-                                child: SignInButton(
-                                  Buttons.Apple,
+                                child: SocialButton(appleIcon, Colors.black,
                                   onPressed: () {
                                     Navigator.push(
                                       context,
@@ -314,8 +309,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         builder: (context) => MyHomePage()),
                                   )
                                 },
-                                child: SignInButton(
-                                  Buttons.Google,
+                                child: SocialButton(googleIcon, const Color(0xFFDB4437),
                                   onPressed: () {
                                     Navigator.push(
                                       context,

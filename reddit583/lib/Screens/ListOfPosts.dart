@@ -4,10 +4,10 @@ import '../MainClasses/Community.dart';
 import '../MainClasses/Post.dart';
 
 class ShowPosts extends StatefulWidget {
-  Community community;
-  Post post;
-  Function removePost;
-  ShowPosts(this.community, this.post, this.removePost, {Key key}) : super(key: key);
+  final Community community;
+  final Post post;
+  final Function removePost;
+  ShowPosts(this.community, this.post, this.removePost, {super.key});
 
   @override
   State<ShowPosts> createState() => _ShowPostsState();

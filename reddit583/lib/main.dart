@@ -9,10 +9,13 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(useMaterial3: false),
       home: AnimatedSplashScreen(
         splash: Image.asset('assets/images/imageedit_2_7305567590.png',),
         duration: 1700,

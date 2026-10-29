@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:reddit583/Screens/tempPosts.dart';
 
-import '../MainClasses/Community.dart';
 import '../MainClasses/Post.dart';
 import 'AddPost.dart';
 
 class PostScreen extends StatefulWidget {
+  const PostScreen({super.key});
+
   // Community community;
-  // PostScreen(this.community, {Key key}) : super(key: key);
+  // PostScreen(this.community, {Key? key}) : super(key: key);
 
   @override
   State<PostScreen> createState() => _PostScreenState();

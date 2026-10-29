@@ -1,21 +1,12 @@
 // ignore_for_file: prefer_const_constructors, file_names, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:reddit583/Screens/AddCommunity.dart';
 import 'package:reddit583/Screens/AddPost.dart';
 import 'package:reddit583/Screens/CommunityScreen.dart';
 import 'package:reddit583/Screens/PostScreen.dart';
 import 'package:reddit583/Screens/WelcomeScreen.dart';
 import 'package:reddit583/Screens/drawer.dart';
-import 'package:reddit583/pages/Community.dart';
-import 'package:reddit583/pages/Plus.dart';
 import 'package:reddit583/pages/Setting.dart';
-import 'package:reddit583/pages/feed.dart';
-import 'package:reddit583/pages/Comment.dart';
-import '../pages/AccountPage.dart';
-import 'LoginScreen.dart';
-import 'SignUpScreen.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -24,8 +15,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> _leftPosition;
+  late AnimationController _controller;
+  late Animation<double> _leftPosition;
   @override
   void initState() {
     super.initState();
@@ -47,7 +38,6 @@ class _MyHomePageState extends State<MyHomePage>
     super.dispose();
   }
 
-  Community x;
   String _currentTab = 'Home';
   bool isClicked = true;
   double turns = 0.0;
@@ -60,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage>
     'Settings': Setting(),
   };
 
-  changePage(int index) {
+  void changePage(int index) {
     setState(() {
       _currentTab = _children.keys.elementAt(index);
     });
@@ -68,12 +58,12 @@ class _MyHomePageState extends State<MyHomePage>
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return AnimatedBuilder(
       animation: _controller,
       builder: (context, child) {
         return MaterialApp(
-          theme: new ThemeData(
+          theme: ThemeData(
+            useMaterial3: false,
             primaryColor:
                 Color.fromARGB(255, 40, 90, 82), // Your app THEME-COLOR
           ),

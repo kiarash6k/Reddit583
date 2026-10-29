@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, file_names, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:reddit583/Screens/AddCommunity.dart';
-import 'package:reddit583/Screens/LoginScreen.dart';
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 
 import 'AccountPage.dart';
@@ -14,7 +13,7 @@ class Setting extends StatefulWidget {
 bool positive = false;
 
 class _SettingState extends State<Setting> {
-  get isSelected => null;
+  Null get isSelected => null;
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +24,12 @@ class _SettingState extends State<Setting> {
           Text('\n'),
           ListTile(
             leading: CircleAvatar(
+              backgroundColor: Color.fromARGB(0, 255, 255, 255),
               child: Icon(
                 Icons.manage_accounts_outlined,
                 size: 35,
                 color: Color.fromARGB(255, 105,231,164),
               ),
-              backgroundColor: Color.fromARGB(0, 255, 255, 255),
             ),
             title: Text('Account',
                 style: TextStyle(
@@ -46,12 +45,12 @@ class _SettingState extends State<Setting> {
           ),
           ListTile(
             leading: CircleAvatar(
+              backgroundColor: Color.fromARGB(0, 255, 255, 255),
               child: Icon(
                 Icons.create_outlined,
                 size: 30,
                 color: Color.fromARGB(255, 105,231,164),
               ),
-              backgroundColor: Color.fromARGB(0, 255, 255, 255),
             ),
             title: Text('Create Forum',
                 style: TextStyle(
@@ -68,12 +67,12 @@ class _SettingState extends State<Setting> {
           ),
           ListTile(
             leading: CircleAvatar(
+              backgroundColor: Color.fromARGB(0, 255, 255, 255),
               child: Icon(
                 Icons.bookmark_outline,
                 size: 30,
                 color: Color.fromARGB(255, 105,231,164),
               ),
-              backgroundColor: Color.fromARGB(0, 255, 255, 255),
             ),
             title: Text('Saved Posts',
                 style: TextStyle(
@@ -86,12 +85,12 @@ class _SettingState extends State<Setting> {
           ),
           ListTile(
             leading: CircleAvatar(
+              backgroundColor: Color.fromARGB(0, 255, 255, 255),
               child: Icon(
                 Icons.info_outline_rounded,
                 size: 35,
                 color: Color.fromARGB(255, 105,231,164),
               ),
-              backgroundColor: Color.fromARGB(0, 255, 255, 255),
             ),
             title: Text('About Us',
                 style: TextStyle(
@@ -103,26 +102,29 @@ class _SettingState extends State<Setting> {
             onTap: () {},
           ),
           AnimatedToggleSwitch<bool>.dual(
-            innerColor:  Color.fromARGB(0, 255, 255, 255),
               current: positive,
               first: false,
               second: true,
-              dif: 50.0,
-              borderColor: Colors.transparent,
+              spacing: 50.0,
               borderWidth: 5.0,
               height: 55,
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.black26,
-                  spreadRadius: 1,
-                  blurRadius: 2,
-                  offset: Offset(0, 1.5),
-                ),
-              ],
+              style: const ToggleStyle(
+                backgroundColor: Color.fromARGB(0, 255, 255, 255),
+                borderColor: Colors.transparent,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    spreadRadius: 1,
+                    blurRadius: 2,
+                    offset: Offset(0, 1.5),
+                  ),
+                ],
+              ),
               onChanged: (b) => setState(() => positive = b),
-              colorBuilder: (b) => b
-                  ? Color.fromARGB(255, 18, 0, 117)
-                  : Color.fromARGB(255, 255, 255, 255),
+              styleBuilder: (b) => ToggleStyle(
+                  indicatorColor: b
+                      ? const Color.fromARGB(255, 18, 0, 117)
+                      : const Color.fromARGB(255, 255, 255, 255)),
               iconBuilder: (value) => value
                   ? Icon(Icons.brightness_2, color: Colors.yellow)
                   : Icon(Icons.sunny, color: Colors.yellow),

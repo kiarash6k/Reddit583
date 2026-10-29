@@ -1,28 +1,26 @@
 import 'package:flutter/material.dart';
 import 'Home_page.dart';
 import 'LoginScreen.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'SocialButton.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key key}) : super(key: key);
+  const SignUpScreen({super.key});
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  TextEditingController user, pass, email, confirmPass;
-  String userError, passError, emailError, confirmPassError;
-  SnackBar alarm;
+  late TextEditingController user, pass, email, confirmPass;
+  String? userError, passError, emailError, confirmPassError;
+  late SnackBar alarm;
   bool isHidden = true;
-  GlobalKey<ScaffoldState> scaffoldKey;
   @override
   void initState() {
     user = TextEditingController();
     pass = TextEditingController();
     email = TextEditingController();
     confirmPass = TextEditingController();
-    scaffoldKey = GlobalKey<ScaffoldState>();
     super.initState();
   }
   @override
@@ -33,7 +31,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
      MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-            key: scaffoldKey,
             backgroundColor: Color.fromARGB(255, 40, 90, 82),
             appBar: AppBar(
               leading: IconButton(
@@ -144,10 +141,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           height: 5,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
                           onPressed: () {
-                            RegExp capitalLetter = new RegExp(r'[A-Z]');
-                            RegExp smallLetter = new RegExp(r'[a-z]');
-                            RegExp number = new RegExp(r'[0-9]');
-                            RegExp emailValidator = new RegExp(r'^\w+@gmail\.com$');
+                            RegExp capitalLetter = RegExp(r'[A-Z]');
+                            RegExp smallLetter = RegExp(r'[a-z]');
+                            RegExp number = RegExp(r'[0-9]');
+                            RegExp emailValidator = RegExp(r'^\w+@gmail\.com$');
                             String username = user.text;
                             String emailAddress = email.text;
                             String password = pass.text;
@@ -180,7 +177,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 passError = null;
                                 confirmPassError = null;
                                 alarm = SnackBar(content: Text('Signup successful. welcome ${user.text}. have fun!'));
-                                scaffoldKey.currentState.showSnackBar(alarm);
+                                ScaffoldMessenger.of(context).showSnackBar(alarm);
                               }
                             });
                             Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
@@ -245,8 +242,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     builder: (context) => MyHomePage()),
                               )
                             },
-                            child: SignInButton(
-                                  Buttons.Twitter,
+                            child: SocialButton(twitterIcon, const Color(0xFF1DA1F2),
                                   onPressed: () {
                                     Navigator.push(
                                       context,
@@ -267,8 +263,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     builder: (context) => MyHomePage()),
                               )
                             },
-                            child: SignInButton(
-                                  Buttons.Apple,
+                            child: SocialButton(appleIcon, Colors.black,
                                   onPressed: () {
                                     Navigator.push(
                                       context,
@@ -289,8 +284,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     builder: (context) => MyHomePage()),
                               )
                             },
-                            child: SignInButton(
-                                  Buttons.Google,
+                            child: SocialButton(googleIcon, const Color(0xFFDB4437),
                                   onPressed: () {
                                     Navigator.push(
                                       context,

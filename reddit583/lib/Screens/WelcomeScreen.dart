@@ -1,13 +1,8 @@
 // ignore_for_file: prefer_const_constructors, file_names, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, unused_label
 import 'package:flutter/material.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter_signin_button/button_list.dart';
-import 'package:flutter_signin_button/button_view.dart';
-import 'package:reddit583/Screens/Home_page.dart';
 import 'package:reddit583/Screens/LoginScreen.dart';
 import 'package:reddit583/Screens/SignUpScreen.dart';
 
-import 'CommunityScreen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -43,7 +38,7 @@ class WelcomeScreen extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
                         ),
-                            primary: Color.fromARGB(255, 105,231,164),
+                            backgroundColor: Color.fromARGB(255, 105,231,164),
                             textStyle: TextStyle(
                                 color: Color.fromARGB(255, 205, 28, 28),
                                 fontSize: 20,
@@ -108,7 +103,7 @@ class WelcomeScreen extends StatelessWidget {
 
 // class CustomShapeBorder extends ContinuousRectangleBorder {
 //   @override
-//   Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+//   Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
 //     final double innerCircleRadius = 150.0;
 
 //     double x = 150, y = 45, r = 0.5;
@@ -128,7 +123,7 @@ class WelcomeScreen extends StatelessWidget {
 // }
 class CustomShapeBorder extends ContinuousRectangleBorder {
   @override
-  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     // ignore: prefer_const_declarations
     final double innerCircleRadius = 150.0;
 

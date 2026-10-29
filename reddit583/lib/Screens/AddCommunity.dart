@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:reddit583/Screens/Home_page.dart';
 
-import '../MainClasses/Community.dart';
 
 class AddCommunity extends StatefulWidget {
-  Function addCommunity;
-  AddCommunity({Key key, this.addCommunity}) : super(key: key);
+  final Function? addCommunity;
+  AddCommunity({super.key, this.addCommunity});
 
   @override
   State<AddCommunity> createState() => _AddCommunityState();
 }
 
 class _AddCommunityState extends State<AddCommunity> {
-  TextEditingController communityNameController;
-  String communityNameError;
-  SnackBar alarm;
-  GlobalKey<ScaffoldState> scaffoldKey;
+  late TextEditingController communityNameController;
+  String? communityNameError;
+  late SnackBar alarm;
   @override
   void initState() {
     communityNameController = TextEditingController();
-    scaffoldKey = GlobalKey<ScaffoldState>();
+
     super.initState();
   }
   @override
@@ -31,8 +29,6 @@ class _AddCommunityState extends State<AddCommunity> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 53, 71, 74),
-      
-      key: scaffoldKey,
       body: Column(
         children: [
           Container(
@@ -76,7 +72,7 @@ class _AddCommunityState extends State<AddCommunity> {
                     } else {
                       communityNameError = null;
                       alarm = SnackBar(content: Text('$communityName created successfully!'));
-                      scaffoldKey.currentState.showSnackBar(alarm);
+                      ScaffoldMessenger.of(context).showSnackBar(alarm);
                       
                       Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
                     }

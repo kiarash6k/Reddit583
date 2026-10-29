@@ -6,6 +6,8 @@ import 'ListOfCommunities.dart';
 
 
 class CommunityScreen extends StatefulWidget {
+  const CommunityScreen({super.key});
+
 
 
   @override
@@ -42,7 +44,6 @@ class _CommunityScreenState extends State<CommunityScreen> {
               return ShowCommunityList(communities[index], () => removeCommunity(index));
             },),),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (_) {
               return AddCommunity(
@@ -51,6 +52,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
             }));
           },
           hoverColor: Colors.teal,
+          child: Icon(Icons.add),
         ),
       ),);
   }

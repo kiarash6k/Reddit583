@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class tempPosts extends StatefulWidget {
-  const tempPosts({Key key}) : super(key: key);
+  const tempPosts({super.key});
 
   @override
   State<tempPosts> createState() => _tempPostsState();

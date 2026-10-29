@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:reddit583/Screens/Home_page.dart';
-import 'package:reddit583/Screens/PostScreen.dart';
 
-import '../MainClasses/Post.dart';
 
 class AddPost extends StatefulWidget {
-  Function addPost;
-  AddPost({Key key, this.addPost}) : super(key: key);
+  final Function? addPost;
+  AddPost({super.key, this.addPost});
 
   @override
   State<AddPost> createState() => _AddPostState();
 }
 
 class _AddPostState extends State<AddPost> {
-  TextEditingController titleController, textController;
-  String titleError, textError;
-  SnackBar alarm;
-  GlobalKey<ScaffoldState> scaffoldKey;
+  late TextEditingController titleController, textController;
+  String? titleError, textError;
+  late SnackBar alarm;
   @override
   void initState() {
     titleController = TextEditingController();
     textController = TextEditingController();
-    scaffoldKey = GlobalKey<ScaffoldState>();
+
     super.initState();
   }
   @override
@@ -34,7 +31,6 @@ class _AddPostState extends State<AddPost> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 53, 71, 74),
-      key: scaffoldKey,
       body: Column(
         children: [
           Container(
@@ -104,7 +100,7 @@ class _AddPostState extends State<AddPost> {
                       titleError = null;
                       textError = null;
                       alarm = SnackBar(content: Text('post uploaded successfully!'));
-                      scaffoldKey.currentState.showSnackBar(alarm);
+                      ScaffoldMessenger.of(context).showSnackBar(alarm);
                       //widget.addPost(Post(title, text, false, false, 0, false));
                       titleController.clear();
                       textController.clear();

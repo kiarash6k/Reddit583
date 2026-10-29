@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:reddit583/Screens/Home_page.dart';
 
 import '../MainClasses/Community.dart';
-import 'PostScreen.dart';
 
 
 class ShowCommunityList extends StatefulWidget {
-  Community community;
-  Function removeCommunity;
-  ShowCommunityList(this.community, this.removeCommunity, {Key key})
-      : super(key: key);
+  final Community community;
+  final Function removeCommunity;
+  ShowCommunityList(this.community, this.removeCommunity, {super.key});
 
   @override
   State<ShowCommunityList> createState() => _ShowCommunityListState();

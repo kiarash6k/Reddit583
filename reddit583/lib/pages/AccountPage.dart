@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class accountPage extends StatefulWidget {
+  const accountPage({super.key});
+
   @override
   State<accountPage> createState() => _accountPageState();
 }
 
 class _accountPageState extends State<accountPage> {
-  TextEditingController user, email;
+  late TextEditingController user, email;
   String User = 'Baby Yoda';
   String Email = 'StarWars@hotmail.com';
 
@@ -66,7 +68,7 @@ class _accountPageState extends State<accountPage> {
               //   ),
               // ),
               Text('\n\n\n'),
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width/2,
                 //color: Colors.pink,
                 child: TextField(
@@ -83,7 +85,7 @@ class _accountPageState extends State<accountPage> {
                           ),
                         )
               ),
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width*.7,
                 //color: Colors.pink,
                 child: TextField(

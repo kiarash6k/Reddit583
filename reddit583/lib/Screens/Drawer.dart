@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
@@ -8,6 +7,8 @@ import 'LoginScreen.dart';
 import 'about_us.dart';
 
 class drawer extends StatelessWidget {
+  const drawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -15,7 +16,7 @@ class drawer extends StatelessWidget {
         
         boxShadow: [
           BoxShadow(
-            color: Colors.white.withOpacity(.1),
+            color: Colors.white.withValues(alpha: .1),
             blurRadius: 20.0, // has the effect of softening the shadow
             spreadRadius: 10.0, // has the effect of extending the shadow
             
@@ -62,12 +63,12 @@ class drawer extends StatelessWidget {
             ),
             ListTile(
               leading: CircleAvatar(
+                backgroundColor: Color.fromARGB(0, 255, 255, 255),
                 child: Icon(
                   Icons.manage_accounts_outlined,
                   size: 20,
                   color: Color.fromARGB(255, 105, 231, 164),
                 ),
-                backgroundColor: Color.fromARGB(0, 255, 255, 255),
               ),
               title: Text('Account',
                   style: TextStyle(
@@ -83,12 +84,12 @@ class drawer extends StatelessWidget {
             ),
             ListTile(
               leading: CircleAvatar(
+                backgroundColor: Color.fromARGB(0, 255, 255, 255),
                 child: Icon(
                   Icons.create_outlined,
                   size: 20,
                   color: Color.fromARGB(255, 105, 231, 164),
                 ),
-                backgroundColor: Color.fromARGB(0, 255, 255, 255),
               ),
               title: Text('Create Forum',
                   style: TextStyle(
@@ -105,12 +106,12 @@ class drawer extends StatelessWidget {
             ),
             ListTile(
               leading: CircleAvatar(
+                backgroundColor: Color.fromARGB(0, 255, 255, 255),
                 child: Icon(
                   Icons.bookmark_outline,
                   size: 20,
                   color: Color.fromARGB(255, 105, 231, 164),
                 ),
-                backgroundColor: Color.fromARGB(0, 255, 255, 255),
               ),
               title: Text('Saved Posts',
                   style: TextStyle(
@@ -123,12 +124,12 @@ class drawer extends StatelessWidget {
             ),
             ListTile(
               leading: CircleAvatar(
+                backgroundColor: Color.fromARGB(0, 255, 255, 255),
                 child: Icon(
                   Icons.info_outline_rounded,
                   size: 25,
                   color: Color.fromARGB(255, 105, 231, 164),
                 ),
-                backgroundColor: Color.fromARGB(0, 255, 255, 255),
               ),
               title: Text('About Us',
                   style: TextStyle(
