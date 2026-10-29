@@ -28,10 +28,8 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   curved_navigation_bar: ^1.0.6 #latest version
-  animated_splash_screen:
-  animated_text_kit: ^4.2.1
   font_awesome_flutter: ^11.0.0
-  animated_toggle_switch: ^0.8.7
+  provider: ^6.1.2
   flutter:
     sdk: flutter
 
@@ -64,15 +62,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - assets/images/redit.jpeg
-   - assets/images/reddit.png
-   - assets/images/imageedit_2_7305567590.png
-   - assets/images/file-apple-logo-black-svg-wikimedia-commons-1.png
-   - assets/images/facebook_logos_PNG19754.png
-   - assets/images/google_PNG19635.png
-   - assets/images/twitter_PNG3.png
-   - assets/images/text.jpeg
-   - assets/images/yoda2.png
+    - assets/images/logo.png
+    - assets/images/avatar.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
